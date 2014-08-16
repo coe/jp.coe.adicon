@@ -2,7 +2,6 @@
 @require net.nend
 ###
 args = arguments[0] || {}
-unless ENV_PRODUCTION then Ti.API.debug "adicon:"+JSON.stringify args
 $.adview.applyProperties args
 
 createNend = (obj)->
@@ -44,7 +43,6 @@ exports.init = (obj={},direction=0)->
       obj.height = "300dp" 
       obj.orientation = "vertical"
   obj = _.extend obj,Alloy.CFG.ad_icon
-  unless ENV_PRODUCTION then Ti.API.debug JSON.stringify obj
   $.adview.applyProperties obj
   $.adview.add createNend obj if Ti.Locale.currentLanguage is "ja"
 
