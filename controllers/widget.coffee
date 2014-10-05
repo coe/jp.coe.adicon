@@ -44,6 +44,6 @@ exports.init = (obj={},direction=0)->
       obj.orientation = "vertical"
   obj = _.extend obj,Alloy.CFG.ad_icon
   $.adview.applyProperties obj
-  $.adview.add createNend obj if Ti.Locale.currentLanguage is "ja"
+  $.adview.add createNend obj if Ti.Locale.currentLanguage is "ja" and !Alloy.CFG.ad?.hide
 
   $.adview
