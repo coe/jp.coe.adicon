@@ -32,18 +32,19 @@ exports.V = 1
 @return View
 ###
 exports.init = (obj={},direction=0)->
-  obj.adType = "icon"
-  switch direction
-    when exports.H 
-      obj.width = "320dp"
-      obj.height = "75dp"
-      obj.orientation = "horizontal"
-    when exports.V
-      obj.width = "75dp"
-      obj.height = "300dp" 
-      obj.orientation = "vertical"
-  obj = _.extend obj,Alloy.CFG.ad_icon
-  $.adview.applyProperties obj
-  $.adview.add createNend obj if Ti.Locale.currentLanguage is "ja" and !Alloy.CFG.ad?.hide
+  if no
+    obj.adType = "icon"
+    switch direction
+      when exports.H 
+        obj.width = "320dp"
+        obj.height = "75dp"
+        obj.orientation = "horizontal"
+      when exports.V
+        obj.width = "75dp"
+        obj.height = "300dp" 
+        obj.orientation = "vertical"
+    obj = _.extend obj,Alloy.CFG.ad_icon
+    $.adview.applyProperties obj
+    $.adview.add createNend obj if Ti.Locale.currentLanguage is "ja" and !Alloy.CFG.ad?.hide
 
   $.adview
